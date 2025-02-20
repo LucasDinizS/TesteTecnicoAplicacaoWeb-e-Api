@@ -1,0 +1,72 @@
+﻿body {
+    
+}
+h1{
+    text-align: center;
+}
+.row{
+    display: flex;
+    justify-content: center
+}
+.btn-select{
+    cursor: pointer;
+    background-color: darkslateblue;
+    font-size: 24px;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 0 10px; 
+}
+form, table, #deletar {
+    display: none;
+}
+table {
+    border-collapse: collapse;
+    margin: auto;
+    margin-top: 20px;
+}
+table.mostrar{
+    display: table
+}
+form.mostrar, #deletar.mostrar {
+    display: grid;
+}
+form, #deletar{
+    grid-template-columns: 1fr 400px;
+    width: 600px;
+    row-gap: 20px;
+    margin: auto
+}
+input{
+    padding: 10px 15px;
+    border-radius: 10px;
+}
+h2, button[type="submit"], #deletar button{
+    grid-column: 1/3;
+    text-align: center;
+}
+button[type="submit"], #deletar button {
+    width: 300px;
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 10px;
+}
+#mensagem {
+    padding: 5px;
+    background: #46B13C;
+    border-radius: 5px;
+    position: fixed;
+    bottom: 0;
+    transform: translateY(100%);
+    border: 1px solid black;
+    right: 20px;
+    transition: .5s ease-in-out;
+}
+#mensagem.mostrar{
+    transform: translateY(-100%);
+}
+table th, table td{
+    width: 200px;
+    border: 1px solid black;
+}

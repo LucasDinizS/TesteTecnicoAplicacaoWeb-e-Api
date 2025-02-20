@@ -6,30 +6,40 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1> Clientes</h1>
+    <nav>
+        <a href="index.html">Clientes</a>
+        <a href="#">Transações</a>
+    </nav>
+    <h1> Transacoes</h1>
     <div class="row" id="botoesCliente">
         <div class="btn-select" form="cadastro">Cadastro</div>
-        <div class="btn-select" form="deletar">Deletar</div>
         <div class="btn-select" id="listar" form="listar">Listar</div>
     </div>
     <div id="mensagem"></div>
     <form id="cadastro" method="post">
-        <h2>Cadastrar Cliente</h2>
-        <label for="id">ID:</label>
-        <input type="number" id="id" name="id" required>
+        <h2>Cadastrar Transacao</h2>
+        <label for="idCliente">Id do Cliente:</label>
+        <input type="number" id="idCliente" name="idCliente" required>
 
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required>
+        <label for="desc">Descrição:</label>
+        <input type="text" id="desc" name="descricao" required>
 
-        <label for="idade">Idade:</label>
-        <input type="number" min="1" id="idade" name="idade" required>
+        <label for="valor">Valor:</label>
+        <input type="text" id="valor" name="valor" required>
+
+        <label for="tipo">Tipo:</label>
+        <input list="tipos" / name="tipo">
+        <datalist id="tipos">
+            <option value="Saque">
+            <option value="Entrada">
+        </datalist>
 
         <button type="submit">Cadastrar</button>
     </form>
 
-    <table id="listar-td">
+    <table id="tbl-listar">
     </table>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="script.js"></script>
+    <script src="JavaScript.js"></script>
 </body>
 </html>

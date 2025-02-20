@@ -15,6 +15,7 @@ $('#cadastro').on('submit', function (e) {
     })
         .then(response => response.json())
         .then(data => {
+            document.getElementById("cadastro").reset();
             $("#mensagem").html('Cliente cadastrado com sucesso!');
         })
         .catch(error => {
@@ -32,10 +33,10 @@ $('#cadastro').on('submit', function (e) {
 $("#listar").on("click", function () {
     listarClientes();
     $(".mostrar").removeClass("mostrar")
-    $(`#listar-td`).addClass("mostrar")
+    $(`#tbl-listar`).addClass("mostrar")
 })
 function listarClientes() {
-    const tbody = $("#listar-td");
+    const tbody = $("#tbl-listar");
     tbody.empty();
     tbody.append(`
             <tr>
@@ -70,6 +71,18 @@ $('#btn-deletar').on("click", function (e) {
             url: `/api/Clientes/${id}`,
             method: "DELETE",
             success: function () {
+                $.ajax({
+                    url: `/api/Transacoes/${id}`,
+                    method: "DELETE",
+                    sucess: function () {
+                        console.log("Transações deletadas com sucesso!")
+                    },
+                    error: function () {
+                        console.log("Erro ao deletar transações")
+                    }
+                })
+
+
                 $("#mensagem").html('Cliente removido com sucesso');
                 $("#mensagem").addClass("mostrar");
                 setTimeout(() => {
